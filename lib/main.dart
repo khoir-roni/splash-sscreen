@@ -1,5 +1,7 @@
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
-import './splash_screen.dart';
+import './myhome_screen.dart';
+// import './splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,7 +27,16 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: SplashScreen(),
+      home: AnimatedSplashScreen(
+        splash: Icon(
+          Icons.mail,
+          size: 50,
+        ),
+        duration: 3000,
+        splashTransition: SplashTransition.decoratedBoxTransition,
+        backgroundColor: Colors.blue,
+        nextScreen: MyHomePage(title: 'title'),
+      ),
     );
   }
 }
